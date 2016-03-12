@@ -1,5 +1,6 @@
 function [ index ] = getMaleLover(MaleScore, Refuse)
-%getMaleLover 
+% getMaleLover
+% get the index of lover (highest score)
 index = -1;
 tmp = 0;
 n = length(MaleScore);
@@ -12,4 +13,3 @@ end
 if index == -1
     index = randi([1, n]);
 end
-

@@ -5,3 +5,5 @@ My Blog: http://blog.csdn.net/csdn_moming
 
 ## A LaTeX Template for CUMCM
 https://github.com/Momingcoder/LaTeX-for-CUMCM
+
+## Stable Marriage Problem

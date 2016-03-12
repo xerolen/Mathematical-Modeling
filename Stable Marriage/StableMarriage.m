@@ -9,12 +9,12 @@ if n <= 0
 end
 
 % init
-MaleScore = randi([0, 100], n, n);
+MaleScore = randi([0, 100], n, n);      % Score matrix
 FemaleScore = randi([0, 100], n, n);
-Single = ones(n, 1);
-BoyFriend = -ones(n, 1);
-CrushOn = zeros(n);
-Refuse = zeros(n);
+Single = ones(n, 1);        % Single Male
+BoyFriend = -ones(n, 1);        % Couple index
+CrushOn = zeros(n);     % index of lover
+Refuse = zeros(n);      % index of failing
 
 % compute
 while max(Single) == 1
@@ -52,7 +52,8 @@ disp('Males'' score in females'' eyes: ');
 disp(FemaleScore);
 disp('==================== Couples ====================');
 for i = 1 : n
-    fprintf('Female %d (%d) with Male %d (%d)\n', i, MaleScore(BoyFriend(i), i), BoyFriend(i), FemaleScore(i, BoyFriend(i)));
+    fprintf('Female %d (%d) with Male %d (%d)\n', i, MaleScore(BoyFriend(i), i), ...
+    BoyFriend(i), FemaleScore(i, BoyFriend(i)));
 end
 
 end

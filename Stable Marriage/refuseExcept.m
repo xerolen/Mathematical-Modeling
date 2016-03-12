@@ -1,5 +1,6 @@
 function [ Refuse ] = refuseExcept(pos, CrushOn, Refuse)
-%refuseExcept 
+% refuseExcept
+% refuse others except for pos
 n = length(CrushOn);
 for i = 1 : n
     if i ~= pos && CrushOn(i) == 1
@@ -8,4 +9,3 @@ for i = 1 : n
 end
 
 end
-

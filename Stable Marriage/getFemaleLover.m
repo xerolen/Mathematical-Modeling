@@ -1,5 +1,6 @@
 function [ index ] = getFemaleLover(FemaleScore, CrushOn, Single)
-%getFemaleLover 
+% getFemaleLover
+% get the index of lover (highest score)
 tmp = 0;
 index = -1;
 n = length(FemaleScore);
@@ -11,4 +12,3 @@ for i = 1 : n
 end
 
 end
-
