@@ -7,3 +7,4 @@ My Blog: http://blog.csdn.net/csdn_moming
 https://github.com/Momingcoder/LaTeX-for-CUMCM
 
 ## Stable Marriage Problem
+https://github.com/Momingcoder/Mathematical-Modeling/tree/master/Stable%20Marriage
