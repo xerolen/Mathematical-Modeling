@@ -1,10 +1,13 @@
-function [] = LSB_embed(name, message, lsb)
+function [] = LSB_embed(name, message, lsb, color)
 % LSBembed(name, message, lsb)
 % name: the picture's path and name
 % message: the data you want to hide in the picture
 % lsb: lsb-rightmost LSBs
 % LSB in steganography (embed)
+% color: 1-red, 2-green, 3-blue
+% 
 % Author: Moming
+% 2016-03-16
 
 clear, clc, close all;
 
@@ -23,11 +26,11 @@ for i = 1 : len
 end
 
 % use Red
-red = image(:, :, 1);
+layer = image(:, :, color);
 for i = 1 : len
-    red(i) = red(i) - mod(red(i), 2^lsb) + double(tmp(i) - '0');  % only to be consistent with front
+    layer(i) = layer(i) - mod(layer(i), 2^lsb) + double(tmp(i) - '0');  % only to be consistent with front
 end
 
-image_result = cat(3, red, image(:, :, 2), image(:, :, 3));
+image_result = cat(3, layer, image(:, :, 2), image(:, :, 3));
 imshow(image_result);
 imwrite(image_result, 'result.jpg');
