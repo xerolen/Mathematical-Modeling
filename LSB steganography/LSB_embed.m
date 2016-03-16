@@ -31,6 +31,7 @@ for i = 1 : len
     layer(i) = layer(i) - mod(layer(i), 2^lsb) + double(tmp(i) - '0');  % only to be consistent with front
 end
 
-image_result = cat(3, layer, image(:, :, 2), image(:, :, 3));
+image_result = image;
+image_result(:, :, color) = layer;
 imshow(image_result);
 imwrite(image_result, 'result.jpg');
