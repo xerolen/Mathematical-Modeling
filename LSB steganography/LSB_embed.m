@@ -9,16 +9,15 @@ function [] = LSB_embed(name, message, lsb, color)
 % Author: Moming
 % 2016-03-16
 
-clear, clc, close all;
-
 image = imread(name);
-msg_origin = unicode2native(strcat(message, char(0)), 'UTF-8');  % UTF-8 encode, 'NUT' is the end tag
-msg_bin = dec2bin(msg_origin);  % convert to binary
+msg_origin = unicode2native(strcat(message, char(4)), 'UTF-8');  % UTF-8 encode, 'NUT' is the end tag
+msg_bin = dec2bin(msg_origin, 8);  % convert to binary
 msg = strjoin(cellstr(msg_bin)','');
 
 len = length(msg) / lsb;
-if len ~= fix(len)
-    strcat(msg, blanks(mod(length(msg), lsb)));
+while len ~= fix(len)
+    strcat(msg, char(4));
+    len = length(msg) / lsb;
 end
 tmp = blanks(len);
 for i = 1 : len
@@ -34,4 +33,4 @@ end
 image_result = image;
 image_result(:, :, color) = layer;
 imshow(image_result);
-imwrite(image_result, 'result.jpg');
+imwrite(image_result, 'result.png');  % jpg would lose some information
