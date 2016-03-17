@@ -14,9 +14,10 @@ layer = image(:, :, color);
 tmp = blanks(0);
 n = prod(size(layer));
 
-for i = 1 : n / 4
+% if lsb ~= 2, then you need to change something below
+for i = 1 : n * lsb / 8
     tmp((i - 1) * 4 + 1 : i * 4) = mod(layer((i - 1) * 4 + 1 : i * 4), 2^lsb); 
-    msg((i - 1) * 8 + 1 : i * 8) = dec2bin(tmp((i - 1) * 4 + 1 : i * 4), 2)';
+    msg((i - 1) * 8 + 1 : i * 8) = dec2bin(tmp((i - 1) * 4 + 1 : i * 4), lsb)';
     msg_origin(i) = bin2dec(msg((i - 1) * 8 + 1 : i * 8));
     if msg_origin(i) == 4
         break;
