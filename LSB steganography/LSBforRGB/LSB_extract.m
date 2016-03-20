@@ -12,7 +12,7 @@ lsb = 3;
 index = 1;
 rgb = zeros(0);
 [len_R, len_G, len_B] = size(image);
-flag = char('0');
+flag = char('0');  % use to detect the end tag
 
 for R = 1 : len_R
     for G = 1 : len_G

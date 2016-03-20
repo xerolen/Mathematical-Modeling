@@ -20,7 +20,7 @@ while len ~= fix(len)
 end
 tmp = blanks(len);
 for i = 1 : len
-    tmp(i) = char(bin2dec(msg((i - 1) * lsb + 1 : i * lsb)) + '0');  % '0' is kind of placeholder
+    tmp(i) = char(bin2dec(msg((i - 1) * lsb + 1 : i * lsb)) + '0');  % '0' is a kind of placeholder
 end
 
 % use Red, Green or Blue

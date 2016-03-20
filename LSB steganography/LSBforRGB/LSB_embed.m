@@ -9,7 +9,7 @@ function [] = LSB_embed(name, message)
 
 lsb = 3;
 image = imread(name);
-msg_origin = unicode2native(message, 'UTF-8');  % UTF-8 encode, 'EOT' is the end tag
+msg_origin = unicode2native(message, 'UTF-8');  % UTF-8 encode
 msg_bin = dec2bin(msg_origin, 8);  % convert to binary
 msg = blanks(9);
 for i = 1 : size(msg_bin, 1)
