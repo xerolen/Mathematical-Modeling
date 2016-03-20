@@ -12,6 +12,7 @@ lsb = 3;
 index = 1;
 rgb = zeros(0);
 [len_R, len_G, len_B] = size(image);
+flag = char('0');
 
 for R = 1 : len_R
     for G = 1 : len_G
@@ -21,12 +22,12 @@ for R = 1 : len_R
         end
         tmp_bin = dec2bin(tmp - '0', 3)';
         rgb(index) = bin2dec(tmp_bin(1 : 8));
-        if rgb(index) == 4  % EOT is the end tag
+        if flag + tmp_bin(9) ~= 97  % '0'/'1' is the end tag
             msg_origin = native2unicode(rgb, 'UTF-8');
-            msg_origin = msg_origin(1 : end-1);
             return;
         end
         index = index + 1;
+        flag = tmp_bin(9);
     end
 end
 
