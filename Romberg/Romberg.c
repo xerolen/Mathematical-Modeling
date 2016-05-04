@@ -1,9 +1,7 @@
 /*
  * Romberg
  * 2015-12-01
- * Author @Yang Keming
- * Information and Computing Science 1302
- * Student ID: 2013310200618
+ * Author @Moming
  */
 
 #include <stdio.h>
