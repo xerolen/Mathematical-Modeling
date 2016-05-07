@@ -2,7 +2,12 @@ function [result] = KNN(k, train, test)
 % KNN
 % @Author: Moming
 % 2016-05-06
-% the first colume of train is the label
+% the first colum of train is the label
+
+if mod(k, 2) == 0
+    warning('k should be odd.');
+    return;
+end
 
 [m, ~] = size(test);
 num = size(train, 1);
