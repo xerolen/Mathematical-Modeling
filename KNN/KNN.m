@@ -28,3 +28,4 @@ end
 
 % mode() will return the min one if some numbers' frequencies are the same
 result = mode(index')'; 
+end
